@@ -50,6 +50,9 @@ namespace GAMEGANGINE
         virtual void defend() = 0;
 
         virtual ~PlayerCharacter();
+
+        void completeQuest(PlayerCharacter* p, int in_health, int in_languageMagic, int in_difficulty);
+        int completeQuest2(int in_health, int in_languageMagic, int in_difficulty);
     };
 }
 

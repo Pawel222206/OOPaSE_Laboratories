@@ -22,6 +22,8 @@ namespace GAMEGANGINE
         float getlanguageMagic() { return languageMagic; };
 
         void defend() override;
+
+        void testYourMIGHT(Wizard* p, int in_languageMagic);
+        int testYourMIGHT2(int in_languageMagic2);
     };
 }
-

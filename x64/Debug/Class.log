@@ -1,5 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Class.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Main.cpp
-C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory13\Class\Class\Main.cpp(35,96): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory13\Class\Class\Main.cpp(40,90): warning C4305: 'argument': truncation from 'double' to 'float'
-  Class.vcxproj -> C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory13\Class\x64\Debug\AfterClass.exe
+C:\Studia\VI Semestr\OOPaSE\Laboratory15\Class\Class\Main.cpp(56,59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Studia\VI Semestr\OOPaSE\Laboratory15\Class\Class\Main.cpp(63,80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Class.vcxproj -> C:\Studia\VI Semestr\OOPaSE\Laboratory15\Class\x64\Debug\AfterClass.exe

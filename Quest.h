@@ -13,6 +13,9 @@ namespace NamespaceTest
     {
     public:
         int difficulty = 0;
+
+        int getdifficulty() { return difficulty; };
+
         Quest(int in_difficulty) : difficulty(in_difficulty) {}
         bool operator==(const Quest& q)
         {

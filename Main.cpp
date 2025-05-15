@@ -29,23 +29,56 @@ T getHigherStat(T a, T b)
     
 }
 
+int safeGetHealth(int in_health)
+{
+    if (in_health <= 0)
+    {
+        throw invalid_argument("He's already dead...");
+        cout << endl; // no error, but it is afer throw so it will never be run
+    }
+    return in_health;
+}
+
 int main()
 {
     cout << "Wizard: " << endl;
-    GAMEGANGINE::Wizard* wizard = new GAMEGANGINE::Wizard(10, 20, GAMEGANGINE::Career::Knight, 4.2);
-    cout << wizard->gethealth() << " " << wizard->getdefense() << " "; wizard->getcreer();
-    cout << endl << wizard->getlanguageMagic() << endl;
+    GAMEGANGINE::Wizard* wizard = new GAMEGANGINE::Wizard(10, 20, GAMEGANGINE::Career::Knight, 20);
 
-    cout << "Caster" << endl;
-    GAMEGANGINE::Caster* caster = new GAMEGANGINE::Caster(2, 10, Creature::RestlessDead, 8.2);
-    cout << caster->getdamage() << " " << caster->getattack() << " "; caster->getcreature();
-    cout << endl << caster->getDispelling() << endl;
+    try
+    {
+        cout << "Annual heath checkup: " << safeGetHealth(wizard->gethealth()) << endl;
+    }
+    catch (const invalid_argument& e)
+    {
+        cout << e.what() << endl;
+    }
 
-    cout << endl << "Get Higher Stat: " << endl;
-    cout << "Health vs Damage: " << getHigherStat(wizard->gethealth(), caster->getdamage()) << endl;
-    cout << "Defence vs Attack: " << getHigherStat(wizard->getdefense(), caster->getattack()) << endl;
-    cout << "Magic points: " << getHigherStat(wizard->getlanguageMagic(), caster->getDispelling()) << endl;
+    wizard->testYourMIGHT(wizard, wizard->getlanguageMagic());
+    cout << endl;
 
+    NamespaceTest::Quest* boarSkins = new NamespaceTest::Quest(50);
+    cout << "Quest difficulty: " << boarSkins->getdifficulty() << endl;
+
+    cout << endl << "Try and do a quest:" << endl;
+    wizard->completeQuest(wizard, wizard->gethealth(), wizard->getlanguageMagic(), boarSkins->getdifficulty());
+
+
+    //cout << wizard->gethealth() << " " << wizard->getdefense() << " "; wizard->getcreer();
+    //cout << endl << wizard->getlanguageMagic() << endl;
+
+    //cout << "Caster" << endl;
+    //GAMEGANGINE::Caster* caster = new GAMEGANGINE::Caster(2, 10, Creature::RestlessDead, 8.2);
+    //cout << caster->getdamage() << " " << caster->getattack() << " "; caster->getcreature();
+    //cout << endl << caster->getDispelling() << endl;
+
+    //cout << endl << "Get Higher Stat: " << endl;
+    //cout << "Health vs Damage: " << getHigherStat(wizard->gethealth(), caster->getdamage()) << endl;
+    //cout << "Defence vs Attack: " << getHigherStat(wizard->getdefense(), caster->getattack()) << endl;
+    //cout << "Magic points: " << getHigherStat(wizard->getlanguageMagic(), caster->getDispelling()) << endl;
+
+
+
+    /*
     cout << endl << "Increasing a field: " << endl;
     GAMEGANGINE::FieldModifier<int>* modifier = new GAMEGANGINE::FieldModifier<int>();
     modifier->set(5);
@@ -74,6 +107,7 @@ int main()
 
     Night::Background* scene2 = new Night::Background();
     scene2->provideBacground();
+    */
 
     return 0;
 }
