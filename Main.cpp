@@ -1,81 +1,118 @@
-/* Example - first code
-#include <iostream>
+#include <iostream>  // input/output
+#include <fstream>   // external files support
+#include <string>    // string
+#include <vector>    // vector
+#include <map>       // map
+using namespace std; // saves the "std::" clutter
 
-int main()
+#include "PlayerCharacter.h"  // needed for each header file
+#include "PlayerCharacter_Wizard.h"
+#include "PlayerCharacter_Warrior.h"
+#include "NonPlayerCharacter.h"
+#include "NonPlayerCharacter_Caster.h"
+#include "DefendYourselfTrigger.h"
+#include "FieldModifier.h"
+#include "Quest.h"
+#include "DayNightCycle.h"
+
+template <typename T>
+T getHigherStat(T a, T b)
 {
-	std::cout << "Hello World!" << std::endl;
-}
-*/
-
-//if ((Input == "0") || (Input == "Red"))
-
-#include <iostream>
-#include <map>
-#include <string>
-using namespace std; // removes need for constant "std::" spam
-
-void message1(); // funtion declaration
-
-int math(int x, int y) // function declaration & definition
-{
-    return x - y;
-}
-
-int main()
-{
-    message1(); // Calling function
-    // cout << "Welcome to my shop!" << endl; //Printing introduction - OLD
-
-    map<string, int> products = { {"beiwtched_bone_marrow", 1},{"cursed_amulet", 2},{"evil_minion", 3},{"milk_spoiled", 4},{"sinister_potion", 5} }; // storing products and amounts in "map" format
-    for (map<string, int>::const_iterator it = products.begin(); it != products.end(); ++it) // printing products and amounts
+    if (a > b) 
     {
-        cout << it->first << " " << it->second << endl;
-    }
-
-    cout << "What do you want?" << endl;
-    string in_productName; // seting up variable
-    cin >> in_productName; // Get user input from the keyboard
-
-    if (in_productName == "secretcode") // kill switch
-    {
-        return 0;
-    }
-
-    cout << "How many?" << endl;
-again: // throwing user anchor
-    string in_productAmount; // seting up variable
-    cin >> in_productAmount;
-
-    if (in_productAmount == "secretcode") // kill switch
-    {
-        return 0;
-    }
-
-    int in_productAmount_int = stoi(in_productAmount); // string to int
-    // cout << in_productAmount_int; // *check
-
-    if (in_productAmount_int > products[in_productName])
-    {
-        cout << "TO MANY! Pick a lower number..." << endl; // error output, if not enought product
-        goto again; // throwing user back to the choise of amount
+        return a;
     }
     else
     {
-        cout << "You have chosen: " << in_productAmount_int << "x " << in_productName << endl; // Return chosen goods
+        return b;
     }
+    
+}
 
-    products[in_productName] = math(products[in_productName], in_productAmount_int); // updating amount of product with function calculating new amount of product
-    // products[in_productName] = products[in_productName] - in_productAmount; // updating the amount of product - OLD
-
-    cout << endl << "List of products with updated stock value:" << endl;
-    for (map<string, int>::const_iterator it = products.begin(); it != products.end(); ++it)
+int safeGetHealth(int in_health)
+{
+    if (in_health <= 0)
     {
-        cout << it->first << " " << it->second << endl;
+        throw invalid_argument("He's already dead...");
+        cout << endl; // no error, but it is afer throw so it will never be run
     }
+    return in_health;
+}
+
+int main()
+{
+    cout << "Wizard: " << endl;
+    GAMEGANGINE::Wizard* wizard = new GAMEGANGINE::Wizard(10, 20, GAMEGANGINE::Career::Knight, 20);
+
+    try
+    {
+        cout << "Annual heath checkup: " << safeGetHealth(wizard->gethealth()) << endl;
+    }
+    catch (const invalid_argument& e)
+    {
+        cout << e.what() << endl;
+    }
+
+    wizard->testYourMIGHT(wizard, wizard->getlanguageMagic());
+    cout << endl;
+
+    NamespaceTest::Quest* boarSkins = new NamespaceTest::Quest(50);
+    cout << "Quest difficulty: " << boarSkins->getdifficulty() << endl;
+
+    cout << endl << "Try and do a quest:" << endl;
+    wizard->completeQuest(wizard, wizard->gethealth(), wizard->getlanguageMagic(), boarSkins->getdifficulty());
+
+
+    //cout << wizard->gethealth() << " " << wizard->getdefense() << " "; wizard->getcreer();
+    //cout << endl << wizard->getlanguageMagic() << endl;
+
+    //cout << "Caster" << endl;
+    //GAMEGANGINE::Caster* caster = new GAMEGANGINE::Caster(2, 10, Creature::RestlessDead, 8.2);
+    //cout << caster->getdamage() << " " << caster->getattack() << " "; caster->getcreature();
+    //cout << endl << caster->getDispelling() << endl;
+
+    //cout << endl << "Get Higher Stat: " << endl;
+    //cout << "Health vs Damage: " << getHigherStat(wizard->gethealth(), caster->getdamage()) << endl;
+    //cout << "Defence vs Attack: " << getHigherStat(wizard->getdefense(), caster->getattack()) << endl;
+    //cout << "Magic points: " << getHigherStat(wizard->getlanguageMagic(), caster->getDispelling()) << endl;
+
+
+
+    /*
+    cout << endl << "Increasing a field: " << endl;
+    GAMEGANGINE::FieldModifier<int>* modifier = new GAMEGANGINE::FieldModifier<int>();
+    modifier->set(5);
+    cout << modifier->get() << endl;
+
+    //cout << endl;
+    //FieldModifier<Wizard>* playerFieldModifier = new FieldModifier<Wizard>();
+    ////playerFieldModifier->increaseHealth(wizard);
+    //playerFieldModifier->increaseHealth();
+
+    cout << endl << "Overloading Operators:" << endl;
+    NamespaceTest::Quest* boarSkins = new NamespaceTest::Quest(5);
+    NamespaceTest::Quest* mushrooms = new NamespaceTest::Quest(5);
+
+    cout << "The sum of difficulty of two quests: " << * boarSkins + *mushrooms << endl;
+
+    cout << "The comparison of difficulty of tow quests: ";
+    if (*boarSkins == *mushrooms)
+    {
+        cout << "Equal difficulty" << endl;
+    }
+
+    cout << endl;
+    Day::Background* scene1 = new Day::Background();
+    scene1->provideBacground();
+
+    Night::Background* scene2 = new Night::Background();
+    scene2->provideBacground();
+    */
 
     return 0;
 }
 
-void message1() { // function definition
-    cout << "Welcome to my shop!" << endl;
-}
+//namespace GAMEGANGINE
+//{
+//
+//}
