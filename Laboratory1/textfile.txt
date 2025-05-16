@@ -1,0 +1,5 @@
+beiwtched_bonemarrow 1
+cursed_amulet 2
+evil_minion 3
+milk_spoiled 4
+sinister_potion 5

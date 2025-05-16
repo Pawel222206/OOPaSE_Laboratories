@@ -1,0 +1,4 @@
+﻿  Main.cpp
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory5\Class\Class\Main.cpp(86,9): error C2065: "nameT": niezadeklarowany identyfikator
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory5\Class\Class\Main.cpp(86,31): error C2065: "nameR": niezadeklarowany identyfikator
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Laboratory5\Class\Class\Main.cpp(93,45): error C2065: "nameR": niezadeklarowany identyfikator
