@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f86f1046-52e7-45d4-b876-970e1dc554e9}</ProjectGuid>
-    <RootNamespace>Class</RootNamespace>
+    <ProjectGuid>{49b30fd9-d7e1-461a-9e88-c9efcfbbe4cc}</ProjectGuid>
+    <RootNamespace>AfterClass</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>AfterClass</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,26 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DefendYourselfTrigger.cpp" />
-    <ClCompile Include="FieldModifier.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="NonPlayerCharacter.cpp" />
-    <ClCompile Include="NonPlayerCharacter_Caster.cpp" />
-    <ClCompile Include="PlayerCharacter.cpp" />
-    <ClCompile Include="PlayerCharacter_Warrior.cpp" />
-    <ClCompile Include="PlayerCharacter_Wizard.cpp" />
-    <ClCompile Include="Quest.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DayNightCycle.h" />
-    <ClInclude Include="DefendYourselfTrigger.h" />
-    <ClInclude Include="FieldModifier.h" />
-    <ClInclude Include="NonPlayerCharacter.h" />
-    <ClInclude Include="NonPlayerCharacter_Caster.h" />
-    <ClInclude Include="PlayerCharacter.h" />
-    <ClInclude Include="PlayerCharacter_Warrior.h" />
-    <ClInclude Include="PlayerCharacter_Wizard.h" />
-    <ClInclude Include="Quest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
