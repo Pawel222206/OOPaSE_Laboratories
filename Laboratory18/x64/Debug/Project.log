@@ -1,0 +1,12 @@
+﻿  DefendYourselfTrigger.cpp
+  FieldModifier.cpp
+  Main.cpp
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\Project\Main.cpp(50,118): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\Project\Main.cpp(57,118): warning C4305: 'argument': truncation from 'double' to 'float'
+  NonPlayerCharacter.cpp
+  PlayerCharacter.cpp
+  PlayerCharacter_Warrior.cpp
+  PlayerCharacter_Wizard.cpp
+  Generating Code...
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\Project\NonPlayerCharacter.cpp(36,1): warning C4715: 'GAMEGANGINE::NonPlayerCharacter::getAttackType': not all control paths return a value
+  Project.vcxproj -> C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\x64\Debug\Project.exe
