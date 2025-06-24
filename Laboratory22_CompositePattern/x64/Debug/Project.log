@@ -1,0 +1,6 @@
+﻿  Main.cpp
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\Project\Simulation.h(30,126): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
+  
+C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\Project\Main.cpp(67,118): warning C4305: 'argument': truncation from 'double' to 'float'
+  Project.vcxproj -> C:\Studia\VI Semestr\Object oriented programming and software engineering\Project\x64\Debug\Project.exe
